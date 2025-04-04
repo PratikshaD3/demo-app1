@@ -9,11 +9,12 @@ phases:
   build:
     commands:
       - echo Build started on `date`
-      - cp index.html /var/www/html/
+      - cp index.html /tmp/index.html
   post_build:
     commands:
       - echo Configuring NGINX
+      - zip -r /tmp/demo-app1.zip /tmp/index.html
 
 artifacts:
   files:
-    - /var/www/html/index.html
+    - /tmp/demo-app1.zip
